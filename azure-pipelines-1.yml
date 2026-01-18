@@ -85,11 +85,13 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      echo "Configuring Azure Web App for Python..."
-      az webapp config appsettings set --resource-group $(resourceGroup) --name $(webAppName) \
+      echo "Enabling remote build (Oryx) to install dependencies..."
+      
+      az webapp config appsettings set \
+        --resource-group $(resourceGroup) \
+        --name $(webAppName) \
         --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
-      az webapp config set --resource-group $(resourceGroup) --name $(webAppName) \
-        --startup-file "gunicorn --bind=0.0.0.0 --timeout 600 application:app"
+
       echo "Deploying deploy.zip..."
       az webapp deploy \
         --resource-group $(resourceGroup) \
