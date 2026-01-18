@@ -9,7 +9,7 @@ variables:
   - name: artifactName
     value: 'api'
   - name: targetFile
-    value: 'app.py'                               # Optional: Which file inside artifact to display
+    value: 'application.py'                               # Optional: Which file inside artifact to display
   - name: resourceGroup
     value: 'Training-student-027-OC012'          # <-- Update this
   - name: webAppName
