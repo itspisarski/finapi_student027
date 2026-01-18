@@ -85,13 +85,6 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      echo "Enabling remote build (Oryx) to install dependencies..."
-      
-      az webapp config appsettings set \
-        --resource-group $(resourceGroup) \
-        --name $(webAppName) \
-        --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
-
       echo "Deploying deploy.zip..."
       az webapp deploy \
         --resource-group $(resourceGroup) \
